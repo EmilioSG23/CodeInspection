@@ -1,24 +1,32 @@
 package labcodeinspection;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
+/**Email App class*/
 public class EmailApp {
+	@SuppressWarnings("PMD.CommentRequired")
+	private static Logger log = Logger.getLogger(EmailApp.class.getName());
+	
+	private EmailApp{}
 
+	/**Main method*/
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		@SuppressWarnings("PMD.ShortVariable")
+		final Scanner sc = new Scanner(System.in);
 
-		System.out.print("Enter your first name: ");
-		String firstName = sc.nextLine();
+		log.debug("Enter your first name: ");
+		final String firstName = sc.nextLine();
 
-		System.out.print("Enter your last name: ");
-		String lastName = sc.nextLine();
+		log.debug("Enter your last name: ");
+		final String lastName = sc.nextLine();
 
-		System.out.print("\nDEPARTMENT CODE\n1. for sales\n2. for Development\n3. for accounting\nEnter code: ");
+		log.debug("\nDEPARTMENT CODE\n1. for sales\n2. for Development\n3. for accounting\nEnter code: ");
 
-		int depChoice = sc.nextInt();
+		final int depChoice = sc.nextInt();
 		sc.close();
 
-		Email email = new Email(firstName, lastName);
+		final Email email = new Email(firstName, lastName);
 		email.setDeparment(depChoice);
 		email.generateEmail();
 		email.showInfo();
